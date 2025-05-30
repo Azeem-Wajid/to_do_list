@@ -1,0 +1,70 @@
+print("Start of my actual journey in python!")
+
+print("Presented to you by Azeem!, lets go!")
+
+def listOptions():
+
+    toDoList = []
+    completedList = []
+
+    print(f"Currently your to-do-list is: {toDoList} ")
+
+    answer = input("Would you like to see the options? yes or no? " )
+
+
+    if answer == "yes":
+        print("Press 1 to add a task")
+        print("Press 2 to remove a task ")
+        print("Press 3 to add a task to completed list ")
+        print("Press 0 to delete the list and start again ")
+
+    elif answer == "no":
+         print("Better luck next time!")
+
+    else:
+        print("Lets start again!")
+        return listOptions()
+
+    number = int(input("Please enter a num between 0,1,2,and 3: "))
+
+
+
+    if number > 3 or number < 0 :
+        print("Out of range, try again!")
+        return listOptions()
+
+    elif number == 0:
+        question = input("Are you sure you want to end the list? yes or no? ")
+        if question == "yes":
+            print(toDoList.clear())
+            return listOptions()
+        elif question == "no":
+            print(f"Your current to do list is {toDoList}")
+
+
+
+    elif number == 1:
+        while len(toDoList)<4:
+            task = input("Enter Task to add:")
+            toDoList.append(task)
+            print(f"Your current to do list is {toDoList}")
+            continue
+
+    elif number == 2:
+        updatedList = toDoList
+        task = input("Enter Task to remove:")
+        updatedList.pop(task)
+        print(toDoList)
+        print(f"Your current to do list is {toDoList}")
+
+    elif number == 3:
+        for i in [toDoList]:
+            input("Which task is completed?"
+                  "0 = task number 1, "
+                  "1 = task number 2, "
+                  "2 = task number 3"
+                  "3 = task number 4")
+            completedList.append(i)
+
+
+listOptions()
