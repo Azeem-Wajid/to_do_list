@@ -1,0 +1,109 @@
+#print("Start of my actual journey in python!")
+
+#print("Presented to you by Azeem!, lets go!")
+toDoList = []
+completedList = []
+
+def add_task():
+    while len(toDoList) < 4:
+        task = input("What task would you like to add? ")
+        toDoList.append(task)
+        print(f"Currently your to-do-list is: {toDoList} ")
+
+def del_list():
+    ask = input("Do you want to delete this list? yes or no? ")
+    if ask == "yes":
+        print(toDoList.clear())
+
+def rem_task():
+    ask = int(input(''' Choose one of the following options:
+    1:  for Task 1
+    2:  for Task 2
+    3:  for Task 3
+    4:  for Task 4
+    '''))
+
+    if ask == 1:
+        toDoList.pop(0)
+        print(f"Currently your to-do-list after removing Task 1 is: {toDoList} ")
+
+    if ask == 2:
+        toDoList.pop(1)
+        print(f"Currently your to-do-list after removing Task 2 is: {toDoList} ")
+
+    if ask == 3:
+        toDoList.pop(2)
+        print(f"Currently your to-do-list after removing Task 3 is: {toDoList} ")
+
+    if ask == 4:
+        toDoList.pop(3)
+        print(f"Currently your to-do-list after removing Task 4 is: {toDoList} ")
+
+
+def other_list():
+    ask = int(input('''Choose one of the following options:
+            1: Completed Task 1
+            2: Completed Task 2
+            3: Completed Task 3
+            4: Completed Task 4
+            5: Completed all tasks
+            '''))
+    if ask == 1:
+        for i , item in enumerate(toDoList):
+            completedList[0].append(item)
+            print(completedList)
+
+
+
+
+
+def listOptions():
+
+    answer = input("Would you like to see the options? yes or no? " )
+
+
+    if answer == "yes":
+        print("Press 1 to add a task")
+        print("Press 2 to remove a task ")
+        print("Press 3 to add a task to completed list ")
+        print("Press 0 to delete the list and start again ")
+
+    elif answer == "no":
+         print("Better luck next time!")
+
+    else:
+        print("Lets start again!")
+        return listOptions()
+
+    number = int(input("Please enter a num between 0,1,2,and 3: "))
+
+    if number == 0:
+        del_list()
+        print(f"Currently your to-do-list is: {toDoList} ")
+        return listOptions()
+
+    if number == 1:
+        add_task()
+        return listOptions()
+
+    if number == 2:
+        print(f"Currently your to-do-list is: {toDoList} ")
+        ask = input("Do you want to add remove a task? yes or no? ")
+        if ask == "yes":
+            rem_task()
+        elif ask == "no":
+            print(f"Currently your to-do-list is: {toDoList} ")
+
+        else:
+            print("Lets start again!")
+            return listOptions()
+
+    if number == 3:
+
+        other_list()
+
+
+
+
+
+listOptions()
